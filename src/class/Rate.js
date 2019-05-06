@@ -45,9 +45,11 @@ class Rate extends React.Component {
     const source = axios.CancelToken.source();
     const cancelToken = source.token;
     const result = await getRate({ currency, baseCurrency, cancelToken });
-    const rate = result.data.rates[currency];
-    const lastUpdated = new Date();
-    this.setState({ rate, lastUpdated, source });
+    this.setState({
+      rate: result.data.rates[currency],
+      lastUpdated: new Date(),
+      source
+    });
   }
 
   render() {
