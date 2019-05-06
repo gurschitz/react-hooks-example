@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.rate, .rate-fc {
+  border-bottom: 1px solid #6e6e6d;
+  padding: 10px;
+}
+
+.rate, .rate-fc {  
+  &__value {
+    font-size: 30px;
+  }
+  &__date {
+    font-size: 15px;
+    color: #6e6e6d;
+  }
+}
+
+.rate {
+  &__value {
+    color: #b1560c;
+  }
+}
+
+.rate-fc {
+  &__value {
+    color: #008807;
+  }
+}
