@@ -1,5 +1,5 @@
 {
-  "name": "new",
+  "name": "react-hooks-example",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -12,6 +12,9 @@
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "typescript": "3.3.3"
   },
   "scripts": {

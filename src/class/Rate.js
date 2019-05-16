@@ -10,6 +10,7 @@ class Rate extends React.Component {
   };
 
   componentDidMount() {
+    this.loadRate();
     this.initializeRateInterval();
   }
 
@@ -20,6 +21,7 @@ class Rate extends React.Component {
     ) {
       this.cancelRateRequest();
       clearInterval(this.interval);
+      this.loadRate();
       this.initializeRateInterval();
     }
   }
@@ -29,26 +31,27 @@ class Rate extends React.Component {
     clearInterval(this.interval);
   }
 
-  initializeRateInterval() {
-    this.loadRate();
-    this.interval = setInterval(() => this.loadRate(), this.delay);
-  }
-
   cancelRateRequest() {
     if (this.state.source) {
       this.state.source.cancel();
     }
   }
 
+  initializeRateInterval() {
+    this.interval = setInterval(() => this.loadRate(), this.delay);
+  }
+
   async loadRate() {
-    const { currency, baseCurrency } = this.props;
     const source = axios.CancelToken.source();
-    const cancelToken = source.token;
-    const result = await getRate({ currency, baseCurrency, cancelToken });
+    this.setState({ source });
+    const result = await getRate({
+      currency: this.props.currency,
+      baseCurrency: this.props.baseCurrency,
+      cancelToken: source.token
+    });
     this.setState({
-      rate: result.data.rates[currency],
-      lastUpdated: new Date(),
-      source
+      rate: result.data.rates[this.props.currency],
+      lastUpdated: new Date()
     });
   }
 
