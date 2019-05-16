@@ -4,12 +4,14 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.rate, .rate-fc {
+.rate,
+.rate-fc {
   border-bottom: 1px solid #6e6e6d;
   padding: 10px;
 }
 
-.rate, .rate-fc {  
+.rate,
+.rate-fc {
   &__value {
     font-size: 30px;
   }
@@ -21,7 +23,7 @@ body {
 
 .rate {
   &__value {
-    color: #b1560c;
+    color: #008807;
   }
 }
 
