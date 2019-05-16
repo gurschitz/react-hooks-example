@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import getRate from "./getRate";
+import getRate from "../getRate";
 
 function useRate(baseCurrency, currency) {
   const delay = 5000;
